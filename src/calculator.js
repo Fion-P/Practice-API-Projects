@@ -4,20 +4,24 @@ function getData(name1, name2) {
     `https://love-calculator.p.rapidapi.com/getPercentage?fname=${name1}&sname=${name2}`,
     {
       method: "GET",
+      mode: "cors",
       // mode: 'no-cors',
       headers: {
         "x-rapidapi-host": "love-calculator.p.rapidapi.com",
-        "x-rapidapi-key": "c38e9d2aa8msh02613669b7e4ad6p1100d6jsn1dad9fcb46e4"
+        "x-rapidapi-key": "c38e9d2aa8msh02613669b7e4ad6p1100d6jsn1dad9fcb46e4",
+        // 'Access-Control-Allow-Origin': "*",
+        // 'Access-Control-Allow-Headers': "*"
       }
     }
   )
     .then(response => {
       // console.log(response);
-      response.json()
-          .then(res => displayData(res));
+      // debugger;
+      response.json().then(res => displayData(res));
     })
     .catch(err => {
       handleError();
+      console.log("Can’t access response. Blocked by browser?");
     });
 
 }
@@ -26,7 +30,7 @@ function handleError() {
   const container = document.querySelector(".container");
   container.innerHTML = `
     <div class="err-message"> Something went wrong, click button to try again </div>
-    <button class="try-again" > Try Again </button>
+    <button class="try-again" onClick="window.location.reload();" > Try Again </button>
   `;
   tryAgain();
 }
