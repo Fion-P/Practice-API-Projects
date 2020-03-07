@@ -1,4 +1,4 @@
-.form-container {
+.container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -98,4 +98,61 @@ input#name {
   transition: 500ms ease;
   background: rgba(138, 111, 115, 0.726);
   border-color: rgba(138, 111, 115, 0.589);
+}
+
+/* Loading */
+.calculating {
+  color: rgb(77, 27, 35);
+  font-size: 2em;
+}
+
+/* Try again button */
+.try-again {
+  padding: 1em 0;
+  font-size: 15px;
+  margin: 1em 0;
+  border-radius: 4px;
+  border: 1px solid rgb(77, 27, 35);
+  background: rgb(77, 27, 35);
+  color: white;
+  cursor: pointer;
+  width: 20em;
+}
+
+.try-again:hover {
+  transition: 500ms ease;
+  background: rgba(138, 111, 115, 0.726);
+  border-color: rgba(138, 111, 115, 0.589);
+}
+
+/* Error Message  */
+.err-message {
+  color: rgb(77, 27, 35);
+  font-size: 1.2em;
+  padding-bottom: 0.5em;
+}
+
+.results {
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .res-content {
+    width: 20em;
+} */
+
+h1.res-header {
+    font-size: 2.0em;
+    border-bottom: 1px solid rgb(121, 86, 91);
+    padding-bottom: 5px;
+    text-align: center;
+    width: 157%;
+    margin-bottom: 0.5em;
+    color: rgb(77, 27, 35);
+}
+
+.res-names {
+    padding: 0.4em 1em;
 }

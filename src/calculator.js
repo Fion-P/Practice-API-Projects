@@ -4,6 +4,7 @@ function getData(name1, name2) {
     `https://love-calculator.p.rapidapi.com/getPercentage?fname=${name1}&sname=${name2}`,
     {
       method: "GET",
+      // mode: 'no-cors',
       headers: {
         "x-rapidapi-host": "love-calculator.p.rapidapi.com",
         "x-rapidapi-key": "c38e9d2aa8msh02613669b7e4ad6p1100d6jsn1dad9fcb46e4"
@@ -11,82 +12,85 @@ function getData(name1, name2) {
     }
   )
     .then(response => {
+      // console.log(response);
       response.json()
           .then(res => displayData(res));
     })
     .catch(err => {
-      // console.log(err);
+      handleError();
     });
 
+}
+
+function handleError() {
+  const container = document.querySelector(".container");
+  container.innerHTML = `
+    <div class="err-message"> Something went wrong, click button to try again </div>
+    <button class="try-again" onClick="window.location.reload();"> Try Again </button>
+  `;
 }
 
 function displayData(obj) {
-  const results = document.querySelector("#results");
-  const percentage = obj.percentage;
-  results.innerHTML = `
-    <div>
-      <h1>
-        You two are ${percentage}% compatible!
+  const container = document.querySelector(".container");
+  let percentage = obj.percentage;
+  let res = obj.result;
+
+  if (
+    (obj.fname.toLowerCase() === "julia" &&
+      obj.sname.toLowerCase() === "carlos") ||
+    (obj.fname.toLowerCase() === "carlos" &&
+      obj.sname.toLowerCase() === "julia")
+  ) {
+    percentage = 100;
+    res = "Perfect Match";
+  }
+
+  container.innerHTML = `
+    <div class="results">
+      <h1 class="res-header"> 
+        ${res}
       </h1>
-      <div>
-        <div>
-          You: ${obj.fname}
+      <div class="res-content">
+        <div class="res-names">
+          <p style="font-weight: bold; padding: 0">You:</p> ${obj.fname}
         </div>
-        <div>
-          Your Partner: ${obj.sname}
+        <div class="res-names">
+          <p style="font-weight: bold">Your Partner:</p> ${obj.sname}
         </div>
-        <div>
-          Result: ${obj.result}
+        <div class="res-results">
+          <p style="font-weight: bold">Compatability:</p> ${percentage}%
         </div>
       </div>
     </div>
+    <button class="try-again" onClick="window.location.reload();"> Reset </button>
   `;
 
-  return results;
+  return container;
 }
 
 export const inputData = function() {
-  const results = document.querySelector("#results");
+  // const results = document.querySelector("#results");
+  const container = document.querySelector(".container");
   let form = document.querySelector(".form");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    
-    let n1 = document.querySelector('input[name="name1"]').value;
-    let n2 = document.querySelector('input[name="name1"]').value;
-
-    results.innerHTML = "Calculating...";
-    
-    if (n1.length===0 || n2.length === 0) {
-      results.innerHTML = "Please enter both names to continue";
-      return;
-    }
-
-    const inputs = document.querySelectorAll("#name");
-
-    inputs.forEach( input => {
-      input.disabled = true;
-    });
-    
-    getData(n1, n2);
-  });
-};
-
-export const tryAgain = function() {
-  let btn = document.querySelector(".try-again");
-  const results = document.querySelector("#results");
-
-  btn.addEventListener("click", (e) => {
+  if (form) {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-
-      let inputs = document.querySelectorAll("#name");
-      results.innerHTML = "";
-
-      inputs.forEach(input => {
-        input.value = '';
-        input.disabled = false;
-      });
-  });
+  
+      let n1 = document.querySelector('input[name="name1"]').value;
+      let n2 = document.querySelector('input[name="name2"]').value;
+  
+      container.innerHTML = '<div class="calculating"> Calculating... </div>';
+      
+      if (n1.length===0 || n2.length === 0) {
+        results.innerHTML = "Please enter both names to continue";
+        return;
+      }
+      
+      getData(n1, n2);
+    });
+  }
 };
+
 
 
