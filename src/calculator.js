@@ -41,10 +41,10 @@ function displayData(obj) {
   let res = obj.result;
 
   if (
-    (obj.fname.toLowerCase() === "julia" &&
-      obj.sname.toLowerCase() === "carlos") ||
-    (obj.fname.toLowerCase() === "carlos" &&
-      obj.sname.toLowerCase() === "julia")
+    (obj.fname.toLowerCase().includes("julia") &&
+      obj.sname.toLowerCase().includes("carlos")) ||
+    (obj.fname.toLowerCase().includes("carlos") &&
+      obj.sname.toLowerCase().includes("julia"))
   ) {
     percentage = 100;
     res = "Perfect Match";
