@@ -3,6 +3,8 @@
   align-items: center;
   flex-direction: column;
   padding: 2em;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 0.05em;
 }
 
 /* form header  */
@@ -47,8 +49,9 @@ input#name {
 
 #name:focus {
   outline: 0;
-  border: 1px solid rgb(77, 27, 35);
+  border: 1px solid rgba(77, 27, 35, 0.781);
   background: white;
+  box-shadow: 0 2px 5px rgba(77, 27, 35, 0.233);
 }
 
 .name-label {
@@ -92,6 +95,8 @@ input#name {
   background: rgb(77, 27, 35);
   color: white;
   cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 0.05em;
 }
 
 .form button:hover {
@@ -117,6 +122,8 @@ input#name {
   color: white;
   cursor: pointer;
   width: 20em;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 0.05em;
 }
 
 .try-again:hover {
@@ -144,15 +151,35 @@ input#name {
 } */
 
 h1.res-header {
-    font-size: 2.0em;
-    border-bottom: 1px solid rgb(121, 86, 91);
-    padding-bottom: 5px;
-    text-align: center;
-    width: 157%;
-    margin-bottom: 0.5em;
-    color: rgb(77, 27, 35);
+  font-size: 2.0em;
+  border-bottom: 1px solid rgb(121, 86, 91);
+  padding-bottom: 5px;
+  text-align: center;
+  width: 157%;
+  margin-bottom: 0.5em;
+  color: rgb(77, 27, 35);
 }
 
 .res-names {
-    padding: 0.4em 1em;
+  padding: 0.4em 1em;
+}
+
+.res-label {
+  font-size: 1.5em;
+  font-weight: 600;
+  /* color: rgb(121, 86, 91); */
+  color: rgb(77, 27, 35);
+}
+
+.res-info {
+    display: flex;
+    align-items: center;
+    /* letter-spacing: 0.05em; */
+}
+
+.res-item {
+    font-size: 1.5em;
+    padding-left: 0.3em;
+    /* color: rgb(77, 27, 35); */
+    color: rgb(121, 86, 91);
 }

@@ -51,14 +51,17 @@ function displayData(obj) {
         ${res}
       </h1>
       <div class="res-content">
-        <div class="res-names">
-          <p style="font-weight: bold; padding: 0">You:</p> ${obj.fname}
+        <div class="res-info">
+          <div class="res-label">You:</div> 
+          <div class="res-item">${obj.fname}</div>
         </div>
-        <div class="res-names">
-          <p style="font-weight: bold">Your Partner:</p> ${obj.sname}
+        <div class="res-info">
+          <div class="res-label">Your Partner:</div> 
+          <div class="res-item">${obj.sname}</div>
         </div>
-        <div class="res-results">
-          <p style="font-weight: bold">Compatability:</p> ${percentage}%
+        <div class="res-info">
+          <div class="res-label">Compatability:</div> 
+          <div class="res-item">${percentage}%</div>
         </div>
       </div>
     </div>
