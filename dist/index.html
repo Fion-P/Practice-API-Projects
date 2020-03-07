@@ -14,11 +14,19 @@
     Enter your names to calculate your compatibility
   </h1>
   <div id="results"></div>
-  <form class="form">
-    <input type="text" name="name1" id="name" placeholder="Your Name" required>
-    <input type="text" name="name2" id="name" placeholder="Your Partner's Name" required>
-    <button type="submit">Calculate</button>
-  </form>
-  <button class="try-again"> Try Again </button>
+  <div class="form-container">
+    <form class="form">
+      <div class="input-field">
+        <input type="text" name="name1" id="name" required>
+        <label class="name-label" for="name1">Your Name</label>
+      </div>
+      <div class="input-field">
+        <input type="text" name="name2" id="name" required>
+        <label class="name-label" for="name2">Your Partner's Name</label>
+      </div>
+      <button type="submit">Calculate</button>
+      <button class="try-again"> Try Again </button>
+    </form>
+  </div>
 </body>
 </html>

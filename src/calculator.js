@@ -51,14 +51,18 @@ export const inputData = function() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    let n1 = e.target.children.name1.value;
-    let n2 = e.target.children.name2.value;
+    
+    let n1 = document.querySelector('input[name="name1"]').value;
+    let n2 = document.querySelector('input[name="name1"]').value;
+
     results.innerHTML = "Calculating...";
     
     if (n1.length===0 || n2.length === 0) {
       results.innerHTML = "Please enter both names to continue";
+      return;
     }
-    let inputs = document.querySelectorAll("#name");
+
+    const inputs = document.querySelectorAll("#name");
 
     inputs.forEach( input => {
       input.disabled = true;

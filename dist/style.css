@@ -4,9 +4,62 @@ form.form {
   width: 20em;
 }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
 input#name {
-  margin: 0.3em 0;
-  padding: 0.5em;
+  padding: 1em;
   border-radius: 3px;
   border: 1px solid #EEEE;
+  background: none;
 }
+
+.input-field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 0.5em;
+}
+
+.name-label, #name {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+#name:focus {
+  outline: 0;
+  border: 1px solid rgba(180, 180, 180, 0.933);
+  background: white;
+}
+
+.name-label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  background: none;
+  transform: translate(0.5em, 1.7rem);
+  z-index: -1;
+  color: rgba(180, 180, 180, 0.933);
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
+
+#name:focus + .name-label, #name:valid  + .name-label{
+  letter-spacing: 0.05em;
+  transform: translate(0.7em, .5em) scale(1);
+  width: fit-content;
+  padding: 0 4px;
+  background: white;
+  border-radius: 3px;
+  z-index: 0;
+  color: black
+}
+
