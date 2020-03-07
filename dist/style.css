@@ -1,13 +1,31 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+}
+
+/* form header  */
+
+h1.form-header {
+  font-size: 1.8em;
+  border-bottom: 1px solid rgb(121, 86, 91);
+  padding-bottom: 5px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.5em;
+  color: rgb(77, 27, 35);
+}
+
+
+/* form styling */
 form.form {
   display: flex;
   flex-direction: column;
   width: 20em;
 }
 
-.form-container {
-  display: flex;
-  justify-content: center;
-}
+/* input fields and create floating label */
 
 input#name {
   padding: 1em;
@@ -29,7 +47,7 @@ input#name {
 
 #name:focus {
   outline: 0;
-  border: 1px solid rgba(180, 180, 180, 0.933);
+  border: 1px solid rgb(77, 27, 35);
   background: white;
 }
 
@@ -43,7 +61,7 @@ input#name {
   background: none;
   transform: translate(0.5em, 1.7rem);
   z-index: -1;
-  color: rgba(180, 180, 180, 0.933);
+  color: rgb(121, 86, 91);
 }
 
 ::-webkit-input-placeholder {
@@ -60,6 +78,24 @@ input#name {
   background: white;
   border-radius: 3px;
   z-index: 0;
-  color: black
+  color: rgb(77, 27, 35);
 }
 
+/* input buttons  */
+
+.form button {
+  padding: 1em 0;
+  font-size: 15px;
+  margin: 1em 0;
+  border-radius: 4px;
+  border: 1px solid rgb(77, 27, 35);
+  background: rgb(77, 27, 35);
+  color: white;
+  cursor: pointer;
+}
+
+.form button:hover {
+  transition: 500ms ease;
+  background: rgba(138, 111, 115, 0.726);
+  border-color: rgba(138, 111, 115, 0.589);
+}
