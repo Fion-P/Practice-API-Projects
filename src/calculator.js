@@ -26,8 +26,9 @@ function handleError() {
   const container = document.querySelector(".container");
   container.innerHTML = `
     <div class="err-message"> Something went wrong, click button to try again </div>
-    <button class="try-again" onClick="window.location.reload();"> Try Again </button>
+    <button class="try-again" > Try Again </button>
   `;
+  tryAgain();
 }
 
 function displayData(obj) {
@@ -65,9 +66,9 @@ function displayData(obj) {
         </div>
       </div>
     </div>
-    <button class="try-again" onClick="window.location.reload();"> Reset </button>
+    <button class="try-again" "> Reset </button>
   `;
-
+  tryAgain();
   return container;
 }
 
@@ -96,4 +97,31 @@ export const inputData = function() {
 };
 
 
+const tryAgain = function() {
+  let btn = document.querySelector(".try-again");
+  const container = document.querySelector(".container");
 
+  if (btn) {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+  
+      container.innerHTML = `
+            <h1 class="form-header">
+              Enter your names to calculate your compatibility
+            </h1>
+            <form class="form">
+              <div class="input-field">
+                <input type="text" name="name1" id="name" required>
+                <label class="name-label" for="name1">Your Name</label>
+              </div>
+              <div class="input-field">
+                <input type="text" name="name2" id="name" required>
+                <label class="name-label" for="name2">Your Partner's Name</label>
+              </div>
+              <button type="submit">Calculate</button>
+            </form>
+      `;
+      inputData();
+    });
+  }
+};
