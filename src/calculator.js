@@ -53,6 +53,7 @@ function displayData(obj) {
     percentage = 100;
     res = "Perfect Match";
   }
+  
 
   container.innerHTML = `
     <div class="results">
